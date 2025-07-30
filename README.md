@@ -1,3 +1,31 @@
+🧠 Productivity Dashboard — React App
+A responsive and feature-rich Productivity Dashboard built with React, designed to help users manage their tasks, habits, notes, and focus sessions — all in one place.
+
+✅ Features
+📋 Task Manager — Create, filter, sort, complete, and manage tasks with priorities and due dates.
+
+📝 Notes App — Write, edit, delete, search, and favorite notes with tags and optional markdown support.
+
+⏱️ Pomodoro Focus Timer — Focus/break timer with cycles, animations, and sounds.
+
+📊 Habit Tracker — Track daily/weekly habits with streaks and calendar-like grid UI.
+
+🌗 Light/Dark Mode — Toggle between themes for better UX.
+
+💾 Data Persistence
+All data is stored in the browser's localStorage.
+
+🔧 Built With
+React (Hooks, Context API)
+
+Tailwind CSS 
+
+react-hook-form 
+
+react-router-dom (routing)
+
+Toast notifications, animations, and accessibility 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
