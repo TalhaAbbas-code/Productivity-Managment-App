@@ -1,4 +1,4 @@
-import React, { useState, useEffect ,useMemo,useCallback} from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import FormInput from "../components/FormInput";
 import Navbar from "../components/Navbar";
@@ -7,8 +7,6 @@ import ActionButton from "../components/ActionButton";
 import { PRIORITIES, STATUS } from "../assets/constants";
 import { getToday, groupTasks } from "../assets/utils";
 import { toast } from "react-hot-toast";
-
-
 
 const defaultValues = {
   title: "",
@@ -60,7 +58,6 @@ const Tasks = () => {
     reset(defaultValues);
   };
 
-
   const handleEdit = useCallback(
     (task) => {
       setEditId(task.id);
@@ -69,7 +66,6 @@ const Tasks = () => {
     },
     [reset]
   );
-
 
   const handleDelete = useCallback(
     (id) => {
@@ -83,14 +79,12 @@ const Tasks = () => {
     [editId, reset]
   );
 
-
   const handleComplete = useCallback((id) => {
     setTasks((ts) =>
       ts.map((t) => (t.id === id ? { ...t, status: "Completed" } : t))
     );
     toast.success("Task marked as completed!");
   }, []);
-
 
   const filteredTasks = useMemo(() => {
     return tasks.filter((t) => {
@@ -102,7 +96,6 @@ const Tasks = () => {
     });
   }, [tasks, filter]);
 
- 
   const sortedTasks = useMemo(() => {
     return [...filteredTasks].sort((a, b) => {
       if (sort === "dueDate") return a.dueDate.localeCompare(b.dueDate);
@@ -275,7 +268,7 @@ const Tasks = () => {
                             <div className="font-semibold text-black">
                               {task.title}
                             </div>
-                            <div className="text-secondarytext text-sm">
+                            <div className="text-black text-sm">
                               {task.description}
                             </div>
                             <div className="text-xs text-gray-500">
@@ -287,7 +280,10 @@ const Tasks = () => {
                               <ActionButton
                                 label="Mark Complete"
                                 onClick={() => handleComplete(task.id)}
-                                color="green"
+                                color={
+                                  task.status === "Completed" ? "gray" : "green"
+                                }
+                                disabled={task.status === "Completed"}
                               />
                             )}
 
